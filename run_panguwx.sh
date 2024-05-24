@@ -31,7 +31,7 @@ export OMP_NUM_THREADS=$coresperrun
 
 nanal=1
 while [ $nanal -le $nanals ]; do
-srun -N 1 -n 1 -c $coresperrun --ntasks-per-node=$runspernode --cpu-bind=cores /work/noaa/gsienkf/whitaker/miniconda3/bin/python ${scriptsdir}/run_panguwx.py $datapath2 $datapathp1 $analdate $nanal &
+srun -N 1 -n 1 -c $coresperrun --ntasks-per-node=$runspernode --cpu-bind=cores /work/noaa/gsienkf/whitaker/miniconda3/bin/python ${scriptsdir}/run_panguwx2.py $datapath2 $datapathp1 $analdate $nanal &
 nanal=$((nanal+1))
 done
 wait
