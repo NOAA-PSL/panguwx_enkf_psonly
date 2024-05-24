@@ -39,17 +39,6 @@ data_surface[2] = nc['vgrd10m'][:].squeeze()
 data_surface[3] = nc['tmp2m'][:].squeeze()
 nc.close()
 
-#data_upper = np.load('/work/noaa/gsienkf/whitaker/python/Pangu-Weather/input_data/input_upper.npy').astype(np.float32)
-#data_surface = np.load('/work/noaa/gsienkf/whitaker/python/Pangu-Weather/input_data/input_surface.npy').astype(np.float32)
-
-#import matplotlib.pyplot as plt
-#plt.imshow(data_surface[0])
-#print(data_surface[0].min(),data_surface[0].max())
-#plt.savefig('test.png')
-#raise SystemExit
-
-#model_3 = onnx.load('/work/noaa/gsienkf/whitaker/python/Pangu-Weather/pangu_weather_3.onnx')
-
 # Set the behavier of onnxruntime
 options = ort.SessionOptions()
 options.enable_cpu_mem_arena=False
@@ -71,7 +60,6 @@ ort_session = ort.InferenceSession('/work/noaa/gsienkf/whitaker/python/Pangu-Wea
 
 # Run the inference session
 input, input_surface = data_upper, data_surface
-fcst_upper=[]; fcst_surface=[]
 for fhr in [3,6,9]:
     #for k in range(13):
     #    print(k,input[0,k,...].min(), input[0,k,...].max())
