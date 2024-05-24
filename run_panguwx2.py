@@ -174,7 +174,6 @@ def write_history(output,fhr):
 
 # Run the inference sessions, write output for 3,6 and 9 hour forecasts.
 input, input_surface = data_upper, data_surface
-fcst_upper=[]; fcst_surface=[]
 fhr=3
 output, output_surface = ort_session3.run(None, {'input':input, 'input_surface':input_surface})
 write_history(output,fhr)
