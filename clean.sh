@@ -29,6 +29,7 @@ mkdir fgens2
 #/bin/mv -f sanl_*mem* analens # save analysis ensemble
 #echo "files moved to analens `date`"
 /bin/rm -f sanl_*mem* # don't save analysis ensemble
+/bin/rm -f banl_*mem* # don't save analysis ensemble
 
 echo "files moved to fgens, fgens2 `date`"
 
