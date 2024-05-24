@@ -1,0 +1,22 @@
+#!/bin/sh
+##SBATCH -q urgent
+#SBATCH -t 02:30:00
+##SBATCH -A gsienkf
+#SBATCH -A isp-1       
+#SBATCH -N 20  
+#SBATCH --ntasks-per-node=80
+#SBATCH -p hercules
+#SBATCH -J panguwx_enkf_psonly
+#SBATCH -e panguwx_enkf_psonly.err
+#SBATCH -o panguwx_enkf_psonly.out
+
+export NODES=$SLURM_NNODES
+export corespernode=$SLURM_CPUS_ON_NODE
+export machine='hercules'
+
+export fg_proc=$corespernode
+export fg_threads=1 
+export enkf_threads=20
+export write_groups=1
+export write_tasks=8 
+export layout="3, 4"
